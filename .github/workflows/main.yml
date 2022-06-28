@@ -1,0 +1,37 @@
+
+name: push-transition-to-master
+on:
+  push:
+    branches:
+      - main
+      - develop
+jobs:
+  sync-branches:
+    runs-on: ubuntu-latest
+    name: Syncing branches
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: sync with master
+        id: pull
+        uses: ./
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          FROM_BRANCH: "main"
+          TO_BRANCH: "develop"
+          PULL_REQUEST_TITLE: "Sync up lightspeed-transition with master"
+          CONTENT_COMPARISON: true
+      - name: second step
+        uses: ./
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          FROM_BRANCH: "develop"
+          TO_BRANCH: "main"
+          PULL_REQUEST_TITLE: "[CAT-10308] merge lightspeed -> master"
+          CONTENT_COMPARISON: true
