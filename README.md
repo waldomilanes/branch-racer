@@ -39,7 +39,7 @@ No more empty pull requests being opened and triggering CI jobs.
 Default: `false`
 ### `REVIEWERS`
 
-JSON array of GitHub user `login`s that will be requested to review the PR. Example: '['tretuna']'
+JSON array of GitHub user `login`s that will be requested to review the PR. Example: '['reviewer1']'
 
 Default: `[]`
 ### `TEAM_REVIEWERS`
@@ -61,28 +61,41 @@ Pull request number from generated pull request or the currently open one
 ## Example usage
 
 ```YML
-name: Sync
+
+name: push-transition-to-master
 on:
   push:
     branches:
-      - main
-
+      - master
+      - feature/lightspeed-transition
 jobs:
   sync-branches:
     runs-on: ubuntu-latest
     name: Syncing branches
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
-          node-version: 12
-      - name: Opening pull request
+          node-version: 16
+      - name: sync with master
         id: pull
-        uses: tretuna/sync-branches@1.4.0
+        uses: waldomilanes/branch-racer@1.0.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          FROM_BRANCH: "main"
-          TO_BRANCH: "develop"
+          FROM_BRANCH: "master"
+          TO_BRANCH: "feature/lightspeed-transition"
+          PULL_REQUEST_TITLE: "Sync up lightspeed-transition with master"
+          CONTENT_COMPARISON: true
+      - name: second step
+        uses: waldomilanes/branch-racer@1.0.0
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          FROM_BRANCH: "feature/lightspeed-transition"
+          TO_BRANCH: "master"
+          PULL_REQUEST_TITLE: "[CAT-10308] merge lightspeed -> master"
+          CONTENT_COMPARISON: true
 ```
