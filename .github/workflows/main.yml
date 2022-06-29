@@ -1,5 +1,5 @@
 
-name: push-transition-to-master
+name: update-transition-to-master
 on:
   push:
     branches:
