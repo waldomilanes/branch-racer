@@ -26,7 +26,7 @@ jobs:
           TO_BRANCH: "feature/lightspeed-transition"
           PULL_REQUEST_TITLE: "[CAT-10308] There is new code on the master branch, let's update lightspeed-transition"
           CONTENT_COMPARISON: true
-          REVIEWERS: "['favelar2', 'waldomilanes']"
+          REVIEWERS: '['favelar2', 'waldomilanes']'
 
       - name: second step
         uses: ./
@@ -36,4 +36,4 @@ jobs:
           TO_BRANCH: "master"
           PULL_REQUEST_TITLE: "[CAT-10308] Hey! It's time to merge new code from lightspeed-transition -> master"
           CONTENT_COMPARISON: true
-          REVIEWERS: "['favelar2', 'waldomilanes']"
+          REVIEWERS: '['favelar2', 'waldomilanes']'
