@@ -85,16 +85,16 @@ jobs:
         uses: waldomilanes/branch-racer@1.0.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          FROM_BRANCH: "main"
-          TO_BRANCH: "develop"
+          FROM_BRANCH: "master"
+          TO_BRANCH: "feature/lightspeed-transition"
           PULL_REQUEST_TITLE: "[CAT-10308] There is new code on the master branch, let's update lightspeed-transition"
           CONTENT_COMPARISON: true
       - name: second step
         uses: waldomilanes/branch-racer@1.0.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          FROM_BRANCH: "develop"
-          TO_BRANCH: "main"
+          FROM_BRANCH: "feature/lightspeed-transition"
+          TO_BRANCH: "master"
           PULL_REQUEST_TITLE: "[CAT-10308] Hey! It's time to merge new code from lightspeed-transition -> master"
           CONTENT_COMPARISON: true
 ```
