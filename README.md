@@ -61,7 +61,7 @@ Pull request number from generated pull request or the currently open one
 ## Example usage
 
 ```YML
-name: update-transition-to-master
+name: harmonize feature/lightspeed-transition and master
 on:
   push:
     branches:
@@ -89,6 +89,7 @@ jobs:
           TO_BRANCH: "feature/lightspeed-transition"
           PULL_REQUEST_TITLE: "[CAT-10308] There is new code on the master branch, let's update lightspeed-transition"
           CONTENT_COMPARISON: true
+          REVIEWERS: [favelar2, waldomilanes]
       - name: second step
         uses: waldomilanes/branch-racer@1.0.0
         with:
@@ -97,4 +98,5 @@ jobs:
           TO_BRANCH: "master"
           PULL_REQUEST_TITLE: "[CAT-10308] Hey! It's time to merge new code from lightspeed-transition -> master"
           CONTENT_COMPARISON: true
+          REVIEWERS: [favelar2, waldomilanes]
 ```
