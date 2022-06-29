@@ -18,6 +18,7 @@ async function run() {
     const reviewers = JSON.parse(core.getInput('REVIEWERS'));
     const team_reviewers = JSON.parse(core.getInput('TEAM_REVIEWERS'));
 
+    console.log('reviewers:', reviewers);
     console.log(
       `Should a pull request to ${toBranch} from ${fromBranch} be created?`,
     );
