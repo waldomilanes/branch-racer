@@ -24,7 +24,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "main"
           TO_BRANCH: "develop"
-          REVIEWERS: "[\"favelar2\", \"waldomilanes\"]"
+          REVIEWERS: "[\"waldo237\", \"waldomilanes\"]"
           PULL_REQUEST_TITLE: "[CAT-10308] There is new code on the master branch, let's update lightspeed-transition"
           CONTENT_COMPARISON: true
           
@@ -34,6 +34,6 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "develop"
           TO_BRANCH: "main"
-          REVIEWERS: "[\"favelar2\", \"waldomilanes\"]"
+          REVIEWERS: "[\"waldo237\", \"waldomilanes\"]"
           PULL_REQUEST_TITLE: "[CAT-10308] Hey! It's time to merge new code from lightspeed-transition -> master"
           CONTENT_COMPARISON: true
