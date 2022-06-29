@@ -87,7 +87,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "main"
           TO_BRANCH: "develop"
-          PULL_REQUEST_TITLE: "There is new code on the master branch, let's update lightspeed-transition"
+          PULL_REQUEST_TITLE: "[CAT-10308] There is new code on the master branch, let's update lightspeed-transition"
           CONTENT_COMPARISON: true
       - name: second step
         uses: waldomilanes/branch-racer@1.0.0
