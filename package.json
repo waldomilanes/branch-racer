@@ -3,7 +3,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint index.js",
-    "test": "eslint index.js"
+    "start": "ncc build index.js --license licenses.txt"
   },
   "dependencies": {
     "@actions/core": "^1.9.0",
