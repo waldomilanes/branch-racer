@@ -92,7 +92,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "master"
           TO_BRANCH: "feature/lightspeed-transition"
-          PULL_REQUEST_TITLE: "Sync up lightspeed-transition with master"
+          PULL_REQUEST_TITLE: "There is new code on the master branch, let's update lightspeed-transition"
           CONTENT_COMPARISON: true
       - name: second step
         uses: waldomilanes/branch-racer@1.0.0
