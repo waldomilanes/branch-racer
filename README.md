@@ -61,13 +61,12 @@ Pull request number from generated pull request or the currently open one
 ## Example usage
 
 ```YML
-
-name: push-transition-to-master
+name: update-transition-to-master
 on:
   push:
     branches:
-      - master
-      - feature/lightspeed-transition
+      - main
+      - develop
 jobs:
   sync-branches:
     runs-on: ubuntu-latest
@@ -83,23 +82,19 @@ jobs:
           node-version: 16
       - name: sync with master
         id: pull
-<<<<<<< HEAD
-        uses: waldomilanes/sync-branches@1.4.0
-=======
-        uses: waldomilanes/branch-racer@1.0.0
->>>>>>> c4c31e6b0026a5a61177d5e5cfb8ceadc3c5100c
+        uses: ./
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          FROM_BRANCH: "master"
-          TO_BRANCH: "feature/lightspeed-transition"
+          FROM_BRANCH: "main"
+          TO_BRANCH: "develop"
           PULL_REQUEST_TITLE: "There is new code on the master branch, let's update lightspeed-transition"
           CONTENT_COMPARISON: true
       - name: second step
-        uses: waldomilanes/branch-racer@1.0.0
+        uses: ./
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          FROM_BRANCH: "feature/lightspeed-transition"
-          TO_BRANCH: "master"
-          PULL_REQUEST_TITLE: "[CAT-10308] merge lightspeed -> master"
+          FROM_BRANCH: "develop"
+          TO_BRANCH: "main"
+          PULL_REQUEST_TITLE: "[CAT-10308] Hey! It's time to merge new code from lightspeed-transition -> master"
           CONTENT_COMPARISON: true
 ```
