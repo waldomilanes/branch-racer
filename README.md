@@ -39,12 +39,12 @@ No more empty pull requests being opened and triggering CI jobs.
 Default: `false`
 ### `REVIEWERS`
 
-JSON array of GitHub user `login`s that will be requested to review the PR. Example: '['reviewer1']'
+JSON array of GitHub user `login`s that will be requested to review the PR. Example: "[\"waldo237\", \"waldomilanes\"]"
 
 Default: `[]`
 ### `TEAM_REVIEWERS`
 
-JSON array of GitHub team `slug`s that will be requested to review the PR. Example: '['js-team']'
+JSON array of GitHub team `slug`s that will be requested to review the PR. Example: "[\"super-team\"]"
 
 Default: `[]`
 
@@ -89,7 +89,7 @@ jobs:
           TO_BRANCH: "feature/lightspeed-transition"
           PULL_REQUEST_TITLE: "[CAT-10308] There is new code on the master branch, let's update lightspeed-transition"
           CONTENT_COMPARISON: true
-          REVIEWERS: [favelar2, waldomilanes]
+          REVIEWERS: "[\"waldo237\", \"waldomilanes\"]"
       - name: second step
         uses: waldomilanes/branch-racer@1.0.0
         with:
@@ -98,5 +98,5 @@ jobs:
           TO_BRANCH: "master"
           PULL_REQUEST_TITLE: "[CAT-10308] Hey! It's time to merge new code from lightspeed-transition -> master"
           CONTENT_COMPARISON: true
-          REVIEWERS: [favelar2, waldomilanes]
+          REVIEWERS: "[\"waldo237\", \"waldomilanes\"]"
 ```
