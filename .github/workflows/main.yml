@@ -1,5 +1,5 @@
 
-name: push-transition-to-master
+name: update-transition-to-master
 on:
   push:
     branches:
@@ -33,5 +33,5 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "develop"
           TO_BRANCH: "main"
-          PULL_REQUEST_TITLE: "[CAT-10308] merge lightspeed -> master"
+          PULL_REQUEST_TITLE: "[CAT-10308] Hey! It's time to merge new code from lightspeed-transition -> master"
           CONTENT_COMPARISON: true
