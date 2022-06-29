@@ -24,11 +24,11 @@ inputs:
   REVIEWERS:
     description: "JSON array of GitHub user `login`s that will be requested to review the PR. Example: '['carlossmith']'"
     required: false
-    default: '[]'
+    default: []
   TEAM_REVIEWERS:
     description: "JSON array of GitHub team `slug`s that will be requested to review the PR. Example: '['js-team']'"
     required: false
-    default: '[]'
+    default: []
 outputs:
   PULL_REQUEST_URL:
     description: "URL for either the generated pull request or the currently open one"
