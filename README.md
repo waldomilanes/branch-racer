@@ -82,7 +82,7 @@ jobs:
           node-version: 16
       - name: sync with master
         id: pull
-        uses: ./
+        uses: waldomilanes/branch-racer@1.0.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "main"
@@ -90,7 +90,7 @@ jobs:
           PULL_REQUEST_TITLE: "There is new code on the master branch, let's update lightspeed-transition"
           CONTENT_COMPARISON: true
       - name: second step
-        uses: ./
+        uses: waldomilanes/branch-racer@1.0.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "develop"
