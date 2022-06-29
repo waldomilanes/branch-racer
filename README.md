@@ -83,7 +83,11 @@ jobs:
           node-version: 16
       - name: sync with master
         id: pull
+<<<<<<< HEAD
+        uses: waldomilanes/sync-branches@1.4.0
+=======
         uses: waldomilanes/branch-racer@1.0.0
+>>>>>>> c4c31e6b0026a5a61177d5e5cfb8ceadc3c5100c
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "master"
